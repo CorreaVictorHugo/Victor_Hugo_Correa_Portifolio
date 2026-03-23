@@ -1,0 +1,5 @@
+.section-title { 
+    font-family: var(--display); 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; /* Estava 3rem, mude para 1rem ou 1.5rem */
+}
