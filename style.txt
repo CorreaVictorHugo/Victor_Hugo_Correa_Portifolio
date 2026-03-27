@@ -1,0 +1,141 @@
+.section-title { 
+    font-family: var(--display); 
+    font-size: 2.5rem; 
+    margin-bottom: 1rem; /* Estava 3rem, mude para 1rem ou 1.5rem */
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1000px;
+  }
+
+  .experience-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .experience-card:hover {
+    border-color: var(--neon);
+    transform: translateY(-6px);
+    background: #0e1629;
+  }
+
+  .experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .experience-role {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .experience-company {
+    color: var(--neon);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .experience-period {
+    font-size: 0.75rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.8rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .experience-description {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .experience-tag {
+    font-size: 0.68rem;
+    background: rgba(56,189,248,0.1);
+    color: var(--neon);
+    padding: 0.28rem 0.7rem;
+    border-radius: 3px;
+    border: 1px solid rgba(56,189,248,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .experience-card {
+      padding: 1.5rem;
+    }
+
+    .experience-role {
+      font-size: 1.1rem;
+    }
+  }
+
+
+  .certifications-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+}
+
+.certification-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: 0.4s;
+}
+
+.certification-card:hover {
+  border-color: var(--neon);
+  transform: translateY(-6px);
+  background: #0e1629;
+}
+
+.certification-title {
+  font-family: var(--display);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.certification-org {
+  color: var(--neon);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.certification-description {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.certification-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

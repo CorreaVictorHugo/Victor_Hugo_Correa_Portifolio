@@ -8,7 +8,96 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  
+  <style>
+    :root {
+      --bg: #050810;
+      --bg2: #090d1a;
+      --surface: #111827;
+      --border: #1e2d4a;
+      --neon: #38bdf8; 
+      --neon2: #7b2fff;
+      --text: #e8eaf6;
+      --muted: #6b7a99;
+      --card: #0c1120;
+      --mono: 'Space Mono', monospace;
+      --display: 'Syne', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 14px; line-height: 1.7; overflow-x: hidden; }
+
+    /* GRID OVERLAY */
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
+      background-size: 40px 40px; pointer-events: none; z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem; background: rgba(5,8,16,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--display); font-weight: 800; color: var(--neon); text-decoration: none; letter-spacing: 1px; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.75rem; text-transform: uppercase; transition: 0.3s; }
+    .nav-links a:hover { color: var(--neon); }
+
+    /* HERO (Botões e Stats removidos conforme solicitado) */
+    #hero { min-height: 70vh; display: flex; align-items: center; padding: 0 4rem; position: relative; }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; padding-top: 80px; }
+    .hero-tag { display: inline-block; font-size: 0.7rem; color: var(--neon); border: 1px solid rgba(56,189,248,0.3); padding: 0.3rem 0.9rem; margin-bottom: 1.5rem; }
+    .hero-title { font-family: var(--display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero-title span { color: var(--neon); text-shadow: 0 0 30px rgba(56,189,248,0.3); }
+    .hero-subtitle { font-size: 1.1rem; color: var(--muted); max-width: 600px; }
+
+    /* SECTIONS */
+    section { padding: 6rem 4rem; position: relative; }
+    .section-label { color: var(--neon); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-family: var(--display); font-size: 2.5rem; margin-bottom: 3rem; }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .project-card { 
+        background: var(--card); 
+        border: 1px solid var(--border); 
+        padding: 2rem; 
+        border-radius: 8px; 
+        transition: 0.4s; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between;
+        text-decoration: none;
+        color: inherit;
+    }
+    .project-card:hover { border-color: var(--neon); transform: translateY(-8px); background: #0e1629; }
+    .project-tag { font-size: 0.6rem; background: rgba(56,189,248,0.1); color: var(--neon); padding: 0.2rem 0.6rem; border-radius: 2px; margin-right: 0.4rem; font-family: var(--mono); }
+    .project-card h3 { font-family: var(--display); margin: 1.2rem 0 0.8rem; font-size: 1.2rem; line-height: 1.3; }
+    .project-card p { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; flex-grow: 1; }
+    .project-link-text { color: var(--neon); font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* STACK */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+    .stack-cat { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 4px; }
+    .stack-cat h4 { color: var(--neon); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 1rem; }
+    .stack-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .stack-item { background: rgba(255,255,255,0.05); padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 2px; border: 1px solid transparent; transition: 0.3s; }
+    .stack-item:hover { border-color: var(--neon); }
+
+    /* REVEAL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 2rem; }
+      #hero { padding: 0 2rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -16,7 +105,7 @@
     <a class="nav-logo" href="#">VHC</a> 
     <ul class="nav-links">
       <li><a href="#about">Sobre</a></li>
-      <li><a href="#experience">Experiências</a></li>
+      <li><a href="#about">Experiências</a></li>
       <li><a href="#projects">Portfólio</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#contact">Contato</a></li>
@@ -28,7 +117,7 @@
       <span class="hero-tag">// Engenheiro de Dados</span>
       <h1 class="hero-title">Victor Hugo<br><span>Nunes Correa</span></h1>
       <p class="hero-subtitle">
-        Atuo na construção e automação de pipelines de dados, transformando informações em insights que apoiam decisões estratégicas.
+        Trabalhando com dados para gerar insights que ajudam nas decisões do negócio.
       </p>
     </div>
   </section>
@@ -171,7 +260,7 @@
     </div>
 
     <div class="certification-card">
-      <h3 class="certification-title">Desenvolvimento Web com Python</h3>
+      <h3 class="certification-title">Desenvolviemnto Web com Python</h3>
       <p class="certification-org">Coti Informática</p>
 
       <p class="certification-description">
@@ -181,8 +270,7 @@
       <div class="certification-tags">
         <span class="experience-tag">Python</span>
         <span class="experience-tag">Pandas</span>
-        <span class="experience-tag">Flask</span>
-        <span class="experience-tag">Django</span>
+        <span class="experience-tag">ETL</span>
       </div>
     </div>
 
@@ -317,6 +405,7 @@
         <div class="stack-items">
           <span class="stack-item">Docker</span>
           <span class="stack-item">Git/GitHub</span>
+          <span class="stack-item"> Basics</span>
           <span class="stack-item">Control-M</span>
           
         </div>
