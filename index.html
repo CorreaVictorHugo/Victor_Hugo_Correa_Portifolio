@@ -403,6 +403,22 @@
   </div>
 
   <div class="projects-grid">
+    <!-- Gov Insight -->
+    <a href="https://github.com/CorreaVictorHugo/Gov_Insiht" target="_blank" rel="noopener noreferrer" class="project-card project-card-featured">
+      <div>
+        <span class="project-tag">Python</span>
+        <span class="project-tag">ETL</span>
+        <span class="project-tag">Streamlit</span>
+        <span class="project-tag">RAG</span>
+        <span class="project-tag">SQLite</span>
+      </div>
+      <h3>Gov Insight</h3>
+      <p>
+        Análise de transparência pública com Python, ETL, Streamlit e SQLite, explorando contratos, anomalias, RAG e agente analista. Um projeto forte para demonstrar dados aplicados a fiscalização, análise exploratória e apoio à decisão.
+      </p>
+      <span class="project-link-text">Ver Repositório -></span>
+    </a>
+
     <!-- FinPilot -->
     <a href="https://github.com/CorreaVictorHugo/finpilot" target="_blank" rel="noopener noreferrer" class="project-card project-card-featured">
       <div>
@@ -489,6 +505,21 @@
 
   <div class="projects-grid projects-grid-compact">
 
+    <!-- Landing Page Fast Cell -->
+    <a href="https://github.com/CorreaVictorHugo/Landing_Page_Fast_Cell" target="_blank" rel="noopener noreferrer" class="project-card">
+      <div>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">Landing Page</span>
+        <span class="project-tag">Mobile-first</span>
+        <span class="project-tag">WhatsApp</span>
+      </div>
+      <h3>Landing Page Fast Cell</h3>
+      <p>
+        Landing page responsiva criada para apresentar catálogo de peças e acessórios para celulares, com foco em conversão via WhatsApp e experiência mobile-first.
+      </p>
+      <span class="project-link-text">Ver Repositório -></span>
+    </a>
+
     <!-- Projeto Pelada 2.0 -->
     <a href="https://github.com/CorreaVictorHugo/Projeto_Pelada_2.0" target="_blank" rel="noopener noreferrer" class="project-card">
       <div>
@@ -544,6 +575,7 @@
         <div class="stack-items">
           <span class="stack-item">Python</span>
           <span class="stack-item">SQL</span>
+          <span class="stack-item">SQLite</span>
           <span class="stack-item">JavaScript</span>
           
         </div>
@@ -556,6 +588,7 @@
           <span class="stack-item">Pyodbc</span>
           <span class="stack-item">ETL</span>
           <span class="stack-item">PySpark</span>
+          <span class="stack-item">RAG</span>
         </div>
       </div>
       <div class="stack-cat">
@@ -605,6 +638,10 @@
         }
       });
     }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card').forEach((card, index) => {
+      card.style.setProperty('--card-index', index % 6);
+    });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>

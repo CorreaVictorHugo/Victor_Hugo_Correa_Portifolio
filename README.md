@@ -69,10 +69,12 @@ Criar uma vitrine profissional que vá além de um currículo tradicional, demon
 
 - **Projetos no GitHub**
   Repositórios com código e estudos práticos, incluindo:
+  - Gov Insight
   - FinPilot
   - Pipeline ETL com Databricks, Delta Lake e Power BI para DRE
   - DRE Analítica Magazine Luiza
   - Assistente para Candidaturas
+  - Landing Page Fast Cell
   - Projeto Pelada 2.0
   - Pipeline ETL com Apache Airflow, Python e PostgreSQL
   - Quiz Python
