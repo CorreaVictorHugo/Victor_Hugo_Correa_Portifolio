@@ -13,6 +13,7 @@
   
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <nav> 
     <a class="nav-logo" href="#">VHC</a> 
@@ -28,8 +29,19 @@
   </nav>
 
   <section id="hero">
+    <div class="data-flow" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <div class="hero-content">
       <!--<span class="hero-tag">// Engenheiro de Dados</span>-->
+      <p class="hero-terminal" aria-label="Especialidades">
+        <span class="terminal-prompt">&gt;</span>
+        <span class="terminal-text">Data Engineering | ETL Pipelines | Analytics</span>
+      </p>
       <h1 class="hero-title">Victor Hugo<br><span>Nunes Correa</span></h1>
       <p class="hero-subtitle">
         Construo automações, pipelines e análises que transformam dados em processos mais confiáveis, decisões mais claras e entregas com impacto real.
@@ -626,11 +638,44 @@
     </div>
 </section>
 
+  <button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
+
   <footer style="padding: 3rem 4rem; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.75rem; letter-spacing: 1px;">
     © 2026 VICTOR HUGO NUNES CORREA // DATA ENGINEERING & ANALYTICS
   </footer>
 
   <script>
+    const nav = document.querySelector('nav');
+    const progress = document.querySelector('.scroll-progress');
+    const backToTop = document.querySelector('.back-to-top');
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = navLinks
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    function updateScrollUi() {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progressValue = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+      progress.style.width = `${progressValue}%`;
+      nav.classList.toggle('nav-scrolled', scrollTop > 24);
+      backToTop.classList.toggle('visible', scrollTop > 520);
+
+      let activeId = '';
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          activeId = section.id;
+        }
+      });
+
+      navLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`;
+        link.classList.toggle('active', isActive);
+      });
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -644,6 +689,14 @@
     });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', updateScrollUi, { passive: true });
+    window.addEventListener('resize', updateScrollUi);
+    updateScrollUi();
   </script>
 </body>
 </html>
