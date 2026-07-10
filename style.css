@@ -559,7 +559,8 @@
 .experience-card::before,
 .certification-card::before,
 .stack-cat::before {
-  background: radial-gradient(circle at 50% 0%, rgba(56,189,248,0.2), transparent 42%);
+  background: linear-gradient(135deg, rgba(56,189,248,0.12), rgba(34,211,238,0.06) 46%, rgba(56,189,248,0.11));
+  box-shadow: inset 0 0 38px rgba(56,189,248,0.1);
   content: '';
   inset: 0;
   opacity: 0;
@@ -583,7 +584,7 @@
 .certification-card:hover,
 .stack-cat:hover {
   border-color: rgba(56,189,248,0.85);
-  box-shadow: 0 0 0 1px rgba(56,189,248,0.28), 0 0 34px rgba(56,189,248,0.16), 0 22px 60px rgba(0,0,0,0.34);
+  box-shadow: 0 0 0 1px rgba(56,189,248,0.32), 0 0 26px rgba(56,189,248,0.18), 0 0 70px rgba(56,189,248,0.1), 0 22px 60px rgba(0,0,0,0.34);
 }
 
 .project-card:hover::before,
